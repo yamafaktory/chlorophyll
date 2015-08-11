@@ -27,7 +27,9 @@
               :type "text"
               :default-value (atom/get-set-tile id :title)
               :on-change (fn [e]
-                           (atom/get-set-tile id :title (.-target.value e)))}]
+                           (let [v (.-target.value e)]
+                             (ux/change-tile id)
+                             (atom/get-set-tile id :title v)))}]
      [:p (:content tile)]]))
 
 (defn add-tile
@@ -38,7 +40,9 @@
                   {:color (style/rgba {:type :lighten :alpha .7})
                    :background-color (style/rgba {:type :darken :alpha .4})
                    :margin "1rem"})
-            :on-click (macros/handler-fn (ux/add-new-tile))}
+            :on-click (macros/handler-fn
+                       (ux/add-new-tile)
+                       (atom/add-tile "Title" "Content"))}
    "Add a new tile"])
 
 (defn app

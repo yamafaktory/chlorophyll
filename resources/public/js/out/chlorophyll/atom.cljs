@@ -13,3 +13,9 @@
    ((@tiles i) k))
   ([i k v]
    (swap! tiles assoc-in [i k] v)))
+
+(defn add-tile
+  "Add a new tile in the tiles atom."
+  [t c]
+  (let [pos (count @tiles)]
+    (swap! tiles assoc-in [pos] {:title t :content c})))
