@@ -11,13 +11,13 @@
   [tile]
   (let [id (get tile 0)
         data (get tile 1)]
-    [:div {:key id
-           :style
-           (conj style/reset
-                 {:color (style/rgba {:type :lighten :alpha .8})
-                  :background-color (style/rgba {:type :darken :alpha .7})
-                  :margin "1rem"})
-           :on-click (macros/handler-fn (ux/select-tile id))}
+    [:article {:key id
+               :style
+               (conj style/reset
+                     {:color (style/rgba {:type :lighten :alpha .8})
+                      :background-color (style/rgba {:type :darken :alpha .7})
+                      :margin "1rem"})
+               :on-click (macros/handler-fn (ux/select-tile id))}
      [:input {:style
               {:font-size "2rem"
                :color (style/rgba {:type :lighten :alpha .8})
@@ -30,7 +30,19 @@
                            (let [v (.-target.value e)]
                              (ux/change-tile id)
                              (atom/get-set-tile id :title v)))}]
-     [:p (:content tile)]]))
+     [:br]
+     [:input {:style
+              {:font-size "1rem"
+               :color (style/rgba {:type :lighten :alpha .7})
+               :background "transparent"
+               :border 0
+               :border-bottom (str "2px solid " (style/rgba {:type :lighten :alpha .3}))}
+              :type "text"
+              :default-value (atom/get-set-tile id :content)
+              :on-change (fn [e]
+                           (let [v (.-target.value e)]
+                             (ux/change-tile id)
+                             (atom/get-set-tile id :content v)))}]]))
 
 (defn add-tile
   "A button to add a new tile."
