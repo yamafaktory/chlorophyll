@@ -4,7 +4,7 @@
             [chlorophyll.atom :as atom]
             [chlorophyll.style :as style]
             [chlorophyll.ux :as ux])
-  (:require-macros [chlorophyll.macros :as macros]))
+  (:require-macros [chlorophyll.macro :as macro]))
 
 (defn tile
   "A tile."
@@ -15,9 +15,9 @@
                :style
                (conj style/reset
                      {:color (style/rgba {:type :lighten :alpha .8})
-                      :background-color (style/rgba {:type :darken :alpha .7})
+                      :background-color (style/rgba {:type :random})
                       :margin "1rem"})
-               :on-click (macros/handler-fn (ux/select-tile id))}
+               :on-click (macro/handler-fn (ux/select-tile id))}
      [:input {:style
               {:font-size "2rem"
                :color (style/rgba {:type :lighten :alpha .8})
@@ -32,11 +32,11 @@
                              (atom/get-set-tile id :title v)))}]
      [:br]
      [:input {:style
-              {:font-size "1rem"
+              {:font-size "1.33rem"
                :color (style/rgba {:type :lighten :alpha .7})
                :background "transparent"
                :border 0
-               :border-bottom (str "2px solid " (style/rgba {:type :lighten :alpha .3}))}
+               :border-bottom (str "1px solid " (style/rgba {:type :lighten :alpha .3}))}
               :type "text"
               :default-value (atom/get-set-tile id :content)
               :on-change (fn [e]
@@ -52,7 +52,7 @@
                   {:color (style/rgba {:type :lighten :alpha .7})
                    :background-color (style/rgba {:type :darken :alpha .4})
                    :margin "1rem"})
-            :on-click (macros/handler-fn
+            :on-click (macro/handler-fn
                        (ux/add-new-tile)
                        (atom/add-tile "Title" "Content"))}
    "Add a new tile"])

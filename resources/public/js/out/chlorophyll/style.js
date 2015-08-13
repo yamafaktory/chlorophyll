@@ -1,13 +1,24 @@
 // Compiled by ClojureScript 1.7.28 {}
 goog.provide('chlorophyll.style');
 goog.require('cljs.core');
+/**
+ * Components reset style utlity.
+ */
 chlorophyll.style.reset = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"margin","margin",-995903681),"0",new cljs.core.Keyword(null,"padding","padding",1660304693),"1rem"], null);
 /**
- * Generate a rgba string.
+ * Generate a css rgba string to lighten or darken with alpha.
  */
 chlorophyll.style.rgba_lumen = cljs.core.memoize.call(null,(function (hex,alpha){
 return [cljs.core.str("rgba("),cljs.core.str(cljs.core.apply.call(null,cljs.core.str,cljs.core.repeat.call(null,(3),[cljs.core.str(hex),cljs.core.str(",")].join('')))),cljs.core.str(alpha),cljs.core.str(")")].join('');
 }));
+/**
+ * Generate a css rgba property with random colors.
+ */
+chlorophyll.style.rgba_random = (function chlorophyll$style$rgba_random(){
+return [cljs.core.str("rgba("),cljs.core.str(cljs.core.apply.call(null,cljs.core.str,cljs.core.repeatedly.call(null,(3),(function (){
+return [cljs.core.str(cljs.core.rand_int.call(null,(256))),cljs.core.str(",")].join('');
+})))),cljs.core.str("1)")].join('');
+});
 if(typeof chlorophyll.style.rgba !== 'undefined'){
 } else {
 /**
@@ -28,5 +39,8 @@ return chlorophyll.style.rgba_lumen.call(null,(255),new cljs.core.Keyword(null,"
 cljs.core._add_method.call(null,chlorophyll.style.rgba,new cljs.core.Keyword(null,"darken","darken",1770242949),(function (rgba){
 return chlorophyll.style.rgba_lumen.call(null,(0),new cljs.core.Keyword(null,"alpha","alpha",-1574982441).cljs$core$IFn$_invoke$arity$1(rgba));
 }));
+cljs.core._add_method.call(null,chlorophyll.style.rgba,new cljs.core.Keyword(null,"random","random",-557811113),(function (rgba){
+return chlorophyll.style.rgba_random.call(null);
+}));
 
-//# sourceMappingURL=style.js.map?rel=1438461399475
+//# sourceMappingURL=style.js.map?rel=1439502759829
