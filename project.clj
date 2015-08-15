@@ -14,7 +14,7 @@
   :plugins [[lein-ring "0.9.6"]
             [lein-cljsbuild "1.0.6"]
             [lein-figwheel "0.3.7"]
-            [cider/cider-nrepl "0.9.1"]]
+            [cider/cider-nrepl "0.10.0-SNAPSHOT"]]
   :source-paths ["src/clj"]
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs"]

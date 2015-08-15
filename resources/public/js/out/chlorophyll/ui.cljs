@@ -7,36 +7,35 @@
   (:require-macros [chlorophyll.macro :as macro]))
 
 (defn tile
-  "A tile."
+  "A tile component."
   [tile]
-  (let [id (get tile 0)
-        data (get tile 1)]
+  (let [id (get tile 0)]
     [:article {:key id
                :style
                (conj style/reset
-                     {:color (style/rgba {:type :lighten :alpha .8})
+                     {:display "flex"
+                      :flex-direction "column"
+                      :color (style/rgba {:type :lighten :alpha .8})
                       :background-color (style/rgba {:type :random})
                       :margin "1rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}
      [:input {:style
-              {:font-size "2rem"
+              {:font-size (style/font {:size :big})
                :color (style/rgba {:type :lighten :alpha .8})
                :background "transparent"
-               :border 0
-               :border-bottom (str "2px solid " (style/rgba {:type :lighten :alpha .2}))}
+               :border 0}
               :type "text"
               :default-value (atom/get-set-tile id :title)
               :on-change (fn [e]
                            (let [v (.-target.value e)]
                              (ux/change-tile id)
                              (atom/get-set-tile id :title v)))}]
-     [:br]
      [:input {:style
-              {:font-size "1.33rem"
+              {:font-size (style/font {:size :small})
                :color (style/rgba {:type :lighten :alpha .7})
                :background "transparent"
-               :border 0
-               :border-bottom (str "1px solid " (style/rgba {:type :lighten :alpha .3}))}
+               :margin-top "1rem"
+               :border 0}
               :type "text"
               :default-value (atom/get-set-tile id :content)
               :on-change (fn [e]
@@ -51,7 +50,8 @@
             (conj style/reset
                   {:color (style/rgba {:type :lighten :alpha .7})
                    :background-color (style/rgba {:type :darken :alpha .4})
-                   :margin "1rem"})
+                   :margin "1rem"
+                   :font-size (style/font {:size :normal})})
             :on-click (macro/handler-fn
                        (ux/add-new-tile)
                        (atom/add-tile "Title" "Content"))}
@@ -66,4 +66,4 @@
           {:background-color (style/rgba {:type :darken :alpha .005})
            :width "100%"})}
    [add-tile]
-   (doall (map tile @atom/tiles))])
+   (doall (map tile (reverse @atom/tiles)))])

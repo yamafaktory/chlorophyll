@@ -3,9 +3,9 @@
   (:require [reagent.core :as reagent :refer [atom]]))
 
 (defonce tiles
-  (atom {0 {:title "Futuristic heuristic." :content "fzef ze fzefzefz"}
-         1 {:title "Digging the grave!" :content "rhrhtrh rth rthr"}
-         2 {:title "Incoming abstraction." :content "iloui uiu u"}}))
+  (atom {0 {:title "Futuristic heuristic." :content "fzef ze fzefzefz" :color [106 80 126]}
+         1 {:title "Digging the grave!" :content "rhrhtrh rth rthr" :color [120 65 65]}
+         2 {:title "Incoming abstraction." :content "iloui uiu u" :color [71 113 135]}}))
 
 (defn get-set-tile
   "Multi-arity getter and setter for tiles."

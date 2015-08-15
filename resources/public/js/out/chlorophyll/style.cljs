@@ -1,12 +1,16 @@
 ;;;; Components styling utilities.
 (ns chlorophyll.style)
 
-;;; Styling utilities.
+;;; Global utilities.
 
 (def reset
   "Components reset style utlity."
-  {:margin "0"
-   :padding "1rem"})
+  {:display "block"
+   :margin "0"
+   :padding "1rem"
+   :border "0"})
+
+;;; Color utilies.
 
 (def rgba-lumen
   "Generate a css rgba string to lighten or darken with alpha."
@@ -14,9 +18,9 @@
              (str "rgba(" (apply str (repeat 3 (str hex ","))) alpha ")"))))
 
 (defn rgba-random
-  "Generate a css rgba property with random colors."
+  "Generate a css rgba property with random colors within the range [100 - 205]."
   []
-  (str "rgba(" (apply str (repeatedly 3 #(str (rand-int 256) ","))) "1)"))
+  (str "rgba(" (apply str (repeatedly 3 #(str (+ 50 (rand-int 106)) ","))) "1)"))
 
 (defmulti rgba
   "Create the corresponding rgba attribute
@@ -34,3 +38,27 @@
 (defmethod rgba :random
   [rgba]
   (rgba-random))
+
+;;; Font size utilities.
+
+(defn font-size
+  "Return the given size in rem."
+  [s]
+  (str s "rem"))
+
+(defmulti font
+  "Create the corresponding rgba attribute
+  in order to lighten or darken an element."
+  :size)
+
+(defmethod font :small
+  [font]
+  (font-size 1))
+
+(defmethod font :normal
+  [font]
+  (font-size 1.33))
+
+(defmethod font :big
+  [font]
+  (font-size 2))
