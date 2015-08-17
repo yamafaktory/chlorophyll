@@ -9,14 +9,19 @@
 (defn tile
   "A tile component."
   [tile]
-  (let [id (get tile 0)]
+  (let [id (get tile 0)
+        bg (atom/get-set-tile id :color)]
     [:article {:key id
                :style
                (conj style/reset
                      {:display "flex"
                       :flex-direction "column"
                       :color (style/rgba {:type :lighten :alpha .8})
-                      :background-color (style/rgba {:type :random})
+                      :background-color (cond
+                                          (nil? bg)(let [rand (style/rgba {:type :random})]
+                                                     (atom/get-set-tile id :color rand)
+                                                     rand)
+                                          :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
                       :margin "1rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}
      [:input {:style
