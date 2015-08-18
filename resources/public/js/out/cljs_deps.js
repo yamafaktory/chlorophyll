@@ -10,8 +10,10 @@ goog.addDependency("../reagent/impl/batching.js", ['reagent.impl.batching'], ['r
 goog.addDependency("../reagent/impl/component.js", ['reagent.impl.component'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.debug']);
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'clojure.string']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'cljsjs.react', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug']);
+goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
+goog.addDependency("../chlorophyll/util.js", ['chlorophyll.util'], ['reagent.core', 'cljs.core', 'cljs.reader']);
 goog.addDependency("../chlorophyll/style.js", ['chlorophyll.style'], ['cljs.core']);
-goog.addDependency("../chlorophyll/atom.js", ['chlorophyll.atom'], ['reagent.core', 'cljs.core']);
+goog.addDependency("../chlorophyll/atom.js", ['chlorophyll.atom'], ['reagent.core', 'chlorophyll.util', 'cljs.core']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
@@ -23,7 +25,6 @@ goog.addDependency("../chlorophyll/bus.js", ['chlorophyll.bus'], ['cljs.core', '
 goog.addDependency("../chlorophyll/ux.js", ['chlorophyll.ux'], ['cljs.core', 'cljs.core.async', 'chlorophyll.bus', 'chlorophyll.atom']);
 goog.addDependency("../chlorophyll/ui.js", ['chlorophyll.ui'], ['reagent.core', 'cljs.core', 'chlorophyll.style', 'chlorophyll.atom', 'chlorophyll.ux']);
 goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['cljs.core', 'clojure.string']);
-goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
 goog.addDependency("../figwheel/client/socket.js", ['figwheel.client.socket'], ['cljs.core', 'figwheel.client.utils', 'cljs.reader']);
 goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
 goog.addDependency("../figwheel/client/file_reloading.js", ['figwheel.client.file_reloading'], ['goog.string', 'goog.net.jsloader', 'goog.Uri', 'cljs.core', 'cljs.core.async', 'clojure.set', 'figwheel.client.utils', 'clojure.string']);
