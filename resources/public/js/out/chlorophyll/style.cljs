@@ -20,7 +20,9 @@
 (defn rgba-random
   "Generate a css rgba property with random colors within the range [100 - 205]."
   []
-  (str "rgba(" (apply str (repeatedly 3 #(str (+ 50 (rand-int 106)) ","))) "1)"))
+  (let [v (into [] (repeatedly 3 #(+ 50 (rand-int 106))))
+        c (apply str "rgba(" (apply str (interpose "," v)) ",1)")]
+    {:vector v :color c}))
 
 (defmulti rgba
   "Create the corresponding rgba attribute

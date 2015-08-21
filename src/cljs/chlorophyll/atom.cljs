@@ -4,7 +4,10 @@
             [chlorophyll.util :as util]))
 
 (defonce tiles
-  (atom (util/local-storage "tiles")))
+  (atom
+   (let [loc (util/local-storage "tiles")]
+     (when (some? loc)
+       loc))))
 
 (defn get-set-tile
   "Multi-arity getter and setter for tiles."

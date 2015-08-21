@@ -15,9 +15,11 @@ return [cljs.core.str("rgba("),cljs.core.str(cljs.core.apply.call(null,cljs.core
  * Generate a css rgba property with random colors within the range [100 - 205].
  */
 chlorophyll.style.rgba_random = (function chlorophyll$style$rgba_random(){
-return [cljs.core.str("rgba("),cljs.core.str(cljs.core.apply.call(null,cljs.core.str,cljs.core.repeatedly.call(null,(3),(function (){
-return [cljs.core.str(((50) + cljs.core.rand_int.call(null,(106)))),cljs.core.str(",")].join('');
-})))),cljs.core.str("1)")].join('');
+var v = cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,cljs.core.repeatedly.call(null,(3),(function (){
+return ((50) + cljs.core.rand_int.call(null,(106)));
+})));
+var c = cljs.core.apply.call(null,cljs.core.str,"rgba(",cljs.core.apply.call(null,cljs.core.str,cljs.core.interpose.call(null,",",v)),",1)");
+return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"vector","vector",1902966158),v,new cljs.core.Keyword(null,"color","color",1011675173),c], null);
 });
 if(typeof chlorophyll.style.rgba !== 'undefined'){
 } else {
@@ -25,12 +27,12 @@ if(typeof chlorophyll.style.rgba !== 'undefined'){
  * Create the corresponding rgba attribute
  * in order to lighten or darken an element.
  */
-chlorophyll.style.rgba = (function (){var method_table__17419__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var prefer_table__17420__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var method_cache__17421__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var cached_hierarchy__17422__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var hierarchy__17423__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
-return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","rgba"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17423__auto__,method_table__17419__auto__,prefer_table__17420__auto__,method_cache__17421__auto__,cached_hierarchy__17422__auto__));
+chlorophyll.style.rgba = (function (){var method_table__17407__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var prefer_table__17408__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var method_cache__17409__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var cached_hierarchy__17410__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var hierarchy__17411__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
+return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","rgba"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17411__auto__,method_table__17407__auto__,prefer_table__17408__auto__,method_cache__17409__auto__,cached_hierarchy__17410__auto__));
 })();
 }
 cljs.core._add_method.call(null,chlorophyll.style.rgba,new cljs.core.Keyword(null,"lighten","lighten",-234464980),(function (rgba){
@@ -54,12 +56,12 @@ if(typeof chlorophyll.style.font !== 'undefined'){
  * Create the corresponding rgba attribute
  * in order to lighten or darken an element.
  */
-chlorophyll.style.font = (function (){var method_table__17419__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var prefer_table__17420__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var method_cache__17421__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var cached_hierarchy__17422__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var hierarchy__17423__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
-return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","font"),new cljs.core.Keyword(null,"size","size",1098693007),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17423__auto__,method_table__17419__auto__,prefer_table__17420__auto__,method_cache__17421__auto__,cached_hierarchy__17422__auto__));
+chlorophyll.style.font = (function (){var method_table__17407__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var prefer_table__17408__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var method_cache__17409__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var cached_hierarchy__17410__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var hierarchy__17411__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
+return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","font"),new cljs.core.Keyword(null,"size","size",1098693007),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17411__auto__,method_table__17407__auto__,prefer_table__17408__auto__,method_cache__17409__auto__,cached_hierarchy__17410__auto__));
 })();
 }
 cljs.core._add_method.call(null,chlorophyll.style.font,new cljs.core.Keyword(null,"small","small",2133478704),(function (font){
@@ -72,4 +74,4 @@ cljs.core._add_method.call(null,chlorophyll.style.font,new cljs.core.Keyword(nul
 return chlorophyll.style.font_size.call(null,(2));
 }));
 
-//# sourceMappingURL=style.js.map?rel=1439672918683
+//# sourceMappingURL=style.js.map?rel=1440088683743

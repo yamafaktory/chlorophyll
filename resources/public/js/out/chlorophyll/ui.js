@@ -12,9 +12,9 @@ chlorophyll.ui.tile = (function chlorophyll$ui$tile(tile__$1){
 var id = cljs.core.get.call(null,tile__$1,(0));
 var bg = chlorophyll.atom.get_set_tile.call(null,id,new cljs.core.Keyword(null,"color","color",1011675173));
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"article","article",-21685045),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"key","key",-1516042587),id,new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.conj.call(null,chlorophyll.style.reset,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"display","display",242065432),"flex",new cljs.core.Keyword(null,"flex-direction","flex-direction",364609438),"column",new cljs.core.Keyword(null,"color","color",1011675173),chlorophyll.style.rgba.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"lighten","lighten",-234464980),new cljs.core.Keyword(null,"alpha","alpha",-1574982441),.8], null)),new cljs.core.Keyword(null,"background-color","background-color",570434026),(((bg == null))?(function (){var rand = chlorophyll.style.rgba.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"random","random",-557811113)], null));
-chlorophyll.atom.get_set_tile.call(null,id,new cljs.core.Keyword(null,"color","color",1011675173),rand);
+chlorophyll.atom.get_set_tile.call(null,id,new cljs.core.Keyword(null,"color","color",1011675173),rand.call(null,new cljs.core.Keyword(null,"vector","vector",1902966158)));
 
-return rand;
+return rand.call(null,new cljs.core.Keyword(null,"color","color",1011675173));
 })():[cljs.core.str("rgba("),cljs.core.str(cljs.core.apply.call(null,cljs.core.str,cljs.core.map.call(null,((function (id,bg){
 return (function (v){
 return [cljs.core.str(v),cljs.core.str(",")].join('');
@@ -61,4 +61,4 @@ chlorophyll.ui.app = (function chlorophyll$ui$app(){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"main","main",-2117802661),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.conj.call(null,chlorophyll.style.reset,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"background-color","background-color",570434026),chlorophyll.style.rgba.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"darken","darken",1770242949),new cljs.core.Keyword(null,"alpha","alpha",-1574982441),.005], null)),new cljs.core.Keyword(null,"width","width",-384071477),"100%"], null))], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [chlorophyll.ui.add_tile], null),cljs.core.doall.call(null,cljs.core.map.call(null,chlorophyll.ui.tile,cljs.core.reverse.call(null,cljs.core.deref.call(null,chlorophyll.atom.tiles))))], null);
 });
 
-//# sourceMappingURL=ui.js.map?rel=1439932909592
+//# sourceMappingURL=ui.js.map?rel=1440161386878

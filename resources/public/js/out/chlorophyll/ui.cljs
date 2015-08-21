@@ -18,9 +18,11 @@
                       :flex-direction "column"
                       :color (style/rgba {:type :lighten :alpha .8})
                       :background-color (cond
+                                          ;; Create a new color and store it.
                                           (nil? bg)(let [rand (style/rgba {:type :random})]
-                                                     (atom/get-set-tile id :color rand)
-                                                     rand)
+                                                     (atom/get-set-tile id :color (rand :vector))
+                                                     (rand :color))
+                                          ;; Or read the vector one.
                                           :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
                       :margin "1rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}

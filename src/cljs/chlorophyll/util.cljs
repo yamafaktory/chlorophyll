@@ -6,6 +6,9 @@
 (defn local-storage
   "Multi-arity getter an setter for browser local storage."
   ([v]
-   (reader/read-string (js/localStorage.getItem v)))
+   (let [loc (js/localStorage.getItem v)]
+     (if (some? loc)
+       (reader/read-string loc)
+       nil)))
   ([k v]
    (js/localStorage.setItem k v)))
