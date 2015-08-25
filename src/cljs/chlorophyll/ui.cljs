@@ -6,6 +6,21 @@
             [chlorophyll.ux :as ux])
   (:require-macros [chlorophyll.macro :as macro]))
 
+(defn tile-input
+  "A tile input component"
+  [id element text-size alpha]
+  [:input {:style
+           {:font-size (style/font {:size text-size})
+            :color (style/rgba {:type :lighten :alpha alpha})
+            :background "transparent"
+            :border 0}
+           :type "text"
+           :default-value (atom/get-set-tile id (keyword element))
+           :on-change (fn [e]
+                        (let [v (.-target.value e)]
+                          (ux/change-tile id)
+                          (atom/get-set-tile id (keyword element) v)))}])
+
 (defn tile
   "A tile component."
   [tile]
@@ -26,29 +41,8 @@
                                           :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
                       :margin "1rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}
-     [:input {:style
-              {:font-size (style/font {:size :big})
-               :color (style/rgba {:type :lighten :alpha .8})
-               :background "transparent"
-               :border 0}
-              :type "text"
-              :default-value (atom/get-set-tile id :title)
-              :on-change (fn [e]
-                           (let [v (.-target.value e)]
-                             (ux/change-tile id)
-                             (atom/get-set-tile id :title v)))}]
-     [:input {:style
-              {:font-size (style/font {:size :small})
-               :color (style/rgba {:type :lighten :alpha .7})
-               :background "transparent"
-               :margin-top "1rem"
-               :border 0}
-              :type "text"
-              :default-value (atom/get-set-tile id :content)
-              :on-change (fn [e]
-                           (let [v (.-target.value e)]
-                             (ux/change-tile id)
-                             (atom/get-set-tile id :content v)))}]]))
+     [tile-input id :title :big .8]
+     [tile-input id :content :small .7]]))
 
 (defn add-tile
   "A button to add a new tile."
