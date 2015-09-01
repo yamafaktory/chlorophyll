@@ -15,6 +15,7 @@
             :background "transparent"
             :border 0}
            :type "text"
+           :max-length 50
            :default-value (atom/get-set-tile id (keyword element))
            :on-change (fn [e]
                         (let [v (.-target.value e)]
@@ -29,6 +30,7 @@
     [:article {:key id
                :style
                (conj style/reset
+                     style/padding
                      {:display "flex"
                       :flex-direction "column"
                       :color (style/rgba {:type :lighten :alpha .8})
@@ -39,7 +41,7 @@
                                                      (rand :color))
                                           ;; Or read the vector one.
                                           :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
-                      :margin "1rem"})
+                      :margin "1rem 2rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}
      [tile-input id :title :big .8]
      [tile-input id :content :small .7]]))
@@ -49,9 +51,10 @@
   []
   [:button {:style
             (conj style/reset
+                  style/padding
                   {:color (style/rgba {:type :lighten :alpha .7})
                    :background-color (style/rgba {:type :darken :alpha .4})
-                   :margin "1rem"
+                   :margin "1rem 2rem"
                    :font-size (style/font {:size :normal})})
             :on-click (macro/handler-fn
                        (ux/add-new-tile)
@@ -65,6 +68,8 @@
    {:style
     (conj style/reset
           {:background-color (style/rgba {:type :darken :alpha .005})
-           :width "100%"})}
+           :width "100%"
+           :display "flex"
+           :flex-direction "column"})}
    [add-tile]
    (doall (map tile (reverse @atom/tiles)))])

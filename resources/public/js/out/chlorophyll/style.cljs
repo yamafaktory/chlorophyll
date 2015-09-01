@@ -7,8 +7,12 @@
   "Components reset style utlity."
   {:display "block"
    :margin "0"
-   :padding "1rem"
+   :padding "0"
    :border "0"})
+
+(def padding
+  "Common padding for components."
+  {:padding "1rem"})
 
 ;;; Color utilies.
 
