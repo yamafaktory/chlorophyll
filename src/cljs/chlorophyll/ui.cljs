@@ -55,7 +55,8 @@
                   {:color (style/rgba {:type :lighten :alpha .7})
                    :background-color (style/rgba {:type :darken :alpha .4})
                    :margin "1rem 2rem"
-                   :font-size (style/font {:size :normal})})
+                   :font-size (style/font {:size :normal})
+                   :text-align "left"})
             :on-click (macro/handler-fn
                        (ux/add-new-tile)
                        (atom/add-tile "Title" "Content"))}

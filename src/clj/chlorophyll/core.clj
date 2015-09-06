@@ -8,9 +8,10 @@
   (:gen-class))
 
 (defroutes router
-  (GET "/" [] "Hello World")
-  (GET "/test" [] "dfsdfsdf")
-  (route/resources "/")
+  (GET "/" []
+       (response/redirect "/index.html"))
+  (route/resources "/"
+                   {:root "resources/public"})
   (route/not-found "Four O four"))
 
 (def app

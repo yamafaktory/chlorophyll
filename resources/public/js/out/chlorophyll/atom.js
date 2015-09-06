@@ -17,23 +17,23 @@ return null;
  * Multi-arity getter and setter for tiles.
  */
 chlorophyll.atom.get_set_tile = (function chlorophyll$atom$get_set_tile(){
-var args20023 = [];
-var len__17552__auto___20026 = arguments.length;
-var i__17553__auto___20027 = (0);
+var args19928 = [];
+var len__17533__auto___19931 = arguments.length;
+var i__17534__auto___19932 = (0);
 while(true){
-if((i__17553__auto___20027 < len__17552__auto___20026)){
-args20023.push((arguments[i__17553__auto___20027]));
+if((i__17534__auto___19932 < len__17533__auto___19931)){
+args19928.push((arguments[i__17534__auto___19932]));
 
-var G__20028 = (i__17553__auto___20027 + (1));
-i__17553__auto___20027 = G__20028;
+var G__19933 = (i__17534__auto___19932 + (1));
+i__17534__auto___19932 = G__19933;
 continue;
 } else {
 }
 break;
 }
 
-var G__20025 = args20023.length;
-switch (G__20025) {
+var G__19930 = args19928.length;
+switch (G__19930) {
 case 2:
 return chlorophyll.atom.get_set_tile.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -43,7 +43,7 @@ return chlorophyll.atom.get_set_tile.cljs$core$IFn$_invoke$arity$3((arguments[(0
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args20023.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19928.length)].join('')));
 
 }
 });
@@ -53,7 +53,8 @@ return cljs.core.deref.call(null,chlorophyll.atom.tiles).call(null,i).call(null,
 });
 
 chlorophyll.atom.get_set_tile.cljs$core$IFn$_invoke$arity$3 = (function (i,k,v){
-cljs.core.swap_BANG_.call(null,chlorophyll.atom.tiles,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [i,k], null),v);
+var c = reagent.core.cursor.call(null,chlorophyll.atom.tiles,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [i,k], null));
+cljs.core.reset_BANG_.call(null,c,v);
 
 return chlorophyll.util.local_storage.call(null,"tiles",cljs.core.deref.call(null,chlorophyll.atom.tiles));
 });
@@ -67,4 +68,4 @@ var pos = cljs.core.count.call(null,cljs.core.deref.call(null,chlorophyll.atom.t
 return cljs.core.swap_BANG_.call(null,chlorophyll.atom.tiles,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pos], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"title","title",636505583),t,new cljs.core.Keyword(null,"content","content",15833224),c], null));
 });
 
-//# sourceMappingURL=atom.js.map?rel=1440162473471
+//# sourceMappingURL=atom.js.map?rel=1441456539102

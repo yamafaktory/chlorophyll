@@ -14,8 +14,9 @@
   ([i k]
    ((@tiles i) k))
   ([i k v]
-   (swap! tiles assoc-in [i k] v)
-   (util/local-storage "tiles" @tiles)))
+   (let [c (reagent/cursor tiles [i k])]
+     (reset! c v)
+     (util/local-storage "tiles" @tiles))))
 
 (defn add-tile
   "Add a new tile in the tiles atom."
