@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.7.28 {}
+// Compiled by ClojureScript 1.7.122 {}
 goog.provide('chlorophyll.atom');
 goog.require('cljs.core');
 goog.require('reagent.core');
@@ -16,24 +16,24 @@ return null;
 /**
  * Multi-arity getter and setter for tiles.
  */
-chlorophyll.atom.get_set_tile = (function chlorophyll$atom$get_set_tile(){
-var args19928 = [];
-var len__17533__auto___19931 = arguments.length;
-var i__17534__auto___19932 = (0);
+chlorophyll.atom.get_set_tile = (function chlorophyll$atom$get_set_tile(var_args){
+var args23803 = [];
+var len__17395__auto___23806 = arguments.length;
+var i__17396__auto___23807 = (0);
 while(true){
-if((i__17534__auto___19932 < len__17533__auto___19931)){
-args19928.push((arguments[i__17534__auto___19932]));
+if((i__17396__auto___23807 < len__17395__auto___23806)){
+args23803.push((arguments[i__17396__auto___23807]));
 
-var G__19933 = (i__17534__auto___19932 + (1));
-i__17534__auto___19932 = G__19933;
+var G__23808 = (i__17396__auto___23807 + (1));
+i__17396__auto___23807 = G__23808;
 continue;
 } else {
 }
 break;
 }
 
-var G__19930 = args19928.length;
-switch (G__19930) {
+var G__23805 = args23803.length;
+switch (G__23805) {
 case 2:
 return chlorophyll.atom.get_set_tile.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -43,7 +43,7 @@ return chlorophyll.atom.get_set_tile.cljs$core$IFn$_invoke$arity$3((arguments[(0
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19928.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args23803.length)].join('')));
 
 }
 });
@@ -68,4 +68,4 @@ var pos = cljs.core.count.call(null,cljs.core.deref.call(null,chlorophyll.atom.t
 return cljs.core.swap_BANG_.call(null,chlorophyll.atom.tiles,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pos], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"title","title",636505583),t,new cljs.core.Keyword(null,"content","content",15833224),c], null));
 });
 
-//# sourceMappingURL=atom.js.map?rel=1441456539102
+//# sourceMappingURL=atom.js.map?rel=1442099110581

@@ -5,20 +5,21 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
-                 [org.clojure/clojurescript "1.7.28"]
+                 [org.clojure/clojurescript "1.7.122"]
                  [ring/ring-core "1.4.0"]
                  [http-kit "2.1.19"]
                  [compojure "1.4.0"]
-                 [reagent "0.5.1-rc2"]
-                 [figwheel "0.3.8"]]
+                 [reagent "0.5.1"]
+                 [figwheel "0.4.0-SNAPSHOT"]]
   :plugins [[lein-ring "0.9.6"]
-            [lein-cljsbuild "1.0.6"]
-            [lein-figwheel "0.3.8"]
+            [lein-cljsbuild "1.1.0"]
+            [lein-figwheel "0.4.0-SNAPSHOT"]
             [cider/cider-nrepl "0.10.0-SNAPSHOT"]]
   :source-paths ["src/clj"]
+  :clean-targets ^{:protect false} ["resources/public/js/out"]
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs"]
-                        :figwheel {:websocket-url   "ws://localhost:3449/figwheel-ws"
+                        :figwheel {:websocket-host "localhost"
                                    :on-jsload "chlorophyll.core/main"}
                         :compiler {:main chlorophyll.core
                                    :asset-path "js/out"

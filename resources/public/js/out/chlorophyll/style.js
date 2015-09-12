@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.7.28 {}
+// Compiled by ClojureScript 1.7.122 {}
 goog.provide('chlorophyll.style');
 goog.require('cljs.core');
 /**
@@ -29,14 +29,14 @@ if(typeof chlorophyll.style.rgba !== 'undefined'){
 } else {
 /**
  * Create the corresponding rgba attribute
- * in order to lighten or darken an element.
+ *   in order to lighten or darken an element.
  */
-chlorophyll.style.rgba = (function (){var method_table__17387__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var prefer_table__17388__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var method_cache__17389__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var cached_hierarchy__17390__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var hierarchy__17391__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
-return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","rgba"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17391__auto__,method_table__17387__auto__,prefer_table__17388__auto__,method_cache__17389__auto__,cached_hierarchy__17390__auto__));
+chlorophyll.style.rgba = (function (){var method_table__17250__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var prefer_table__17251__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var method_cache__17252__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var cached_hierarchy__17253__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var hierarchy__17254__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
+return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","rgba"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17254__auto__,method_table__17250__auto__,prefer_table__17251__auto__,method_cache__17252__auto__,cached_hierarchy__17253__auto__));
 })();
 }
 cljs.core._add_method.call(null,chlorophyll.style.rgba,new cljs.core.Keyword(null,"lighten","lighten",-234464980),(function (rgba){
@@ -58,14 +58,14 @@ if(typeof chlorophyll.style.font !== 'undefined'){
 } else {
 /**
  * Create the corresponding rgba attribute
- * in order to lighten or darken an element.
+ *   in order to lighten or darken an element.
  */
-chlorophyll.style.font = (function (){var method_table__17387__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var prefer_table__17388__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var method_cache__17389__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var cached_hierarchy__17390__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-var hierarchy__17391__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
-return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","font"),new cljs.core.Keyword(null,"size","size",1098693007),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17391__auto__,method_table__17387__auto__,prefer_table__17388__auto__,method_cache__17389__auto__,cached_hierarchy__17390__auto__));
+chlorophyll.style.font = (function (){var method_table__17250__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var prefer_table__17251__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var method_cache__17252__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var cached_hierarchy__17253__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
+var hierarchy__17254__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
+return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"chlorophyll.style","font"),new cljs.core.Keyword(null,"size","size",1098693007),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__17254__auto__,method_table__17250__auto__,prefer_table__17251__auto__,method_cache__17252__auto__,cached_hierarchy__17253__auto__));
 })();
 }
 cljs.core._add_method.call(null,chlorophyll.style.font,new cljs.core.Keyword(null,"small","small",2133478704),(function (font){
@@ -78,4 +78,4 @@ cljs.core._add_method.call(null,chlorophyll.style.font,new cljs.core.Keyword(nul
 return chlorophyll.style.font_size.call(null,(2));
 }));
 
-//# sourceMappingURL=style.js.map?rel=1441141633280
+//# sourceMappingURL=style.js.map?rel=1442099110547

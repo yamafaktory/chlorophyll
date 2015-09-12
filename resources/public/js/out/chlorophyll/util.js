@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.7.28 {}
+// Compiled by ClojureScript 1.7.122 {}
 goog.provide('chlorophyll.util');
 goog.require('cljs.core');
 goog.require('reagent.core');
@@ -6,24 +6,24 @@ goog.require('cljs.reader');
 /**
  * Multi-arity getter an setter for browser local storage.
  */
-chlorophyll.util.local_storage = (function chlorophyll$util$local_storage(){
-var args19989 = [];
-var len__17552__auto___19992 = arguments.length;
-var i__17553__auto___19993 = (0);
+chlorophyll.util.local_storage = (function chlorophyll$util$local_storage(var_args){
+var args23792 = [];
+var len__17395__auto___23795 = arguments.length;
+var i__17396__auto___23796 = (0);
 while(true){
-if((i__17553__auto___19993 < len__17552__auto___19992)){
-args19989.push((arguments[i__17553__auto___19993]));
+if((i__17396__auto___23796 < len__17395__auto___23795)){
+args23792.push((arguments[i__17396__auto___23796]));
 
-var G__19994 = (i__17553__auto___19993 + (1));
-i__17553__auto___19993 = G__19994;
+var G__23797 = (i__17396__auto___23796 + (1));
+i__17396__auto___23796 = G__23797;
 continue;
 } else {
 }
 break;
 }
 
-var G__19991 = args19989.length;
-switch (G__19991) {
+var G__23794 = args23792.length;
+switch (G__23794) {
 case 1:
 return chlorophyll.util.local_storage.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -33,7 +33,7 @@ return chlorophyll.util.local_storage.cljs$core$IFn$_invoke$arity$2((arguments[(
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19989.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args23792.length)].join('')));
 
 }
 });
@@ -53,4 +53,4 @@ return localStorage.setItem(k,v);
 
 chlorophyll.util.local_storage.cljs$lang$maxFixedArity = 2;
 
-//# sourceMappingURL=util.js.map?rel=1440161368681
+//# sourceMappingURL=util.js.map?rel=1442099110497
