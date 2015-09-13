@@ -7,23 +7,23 @@ goog.require('cljs.reader');
  * Multi-arity getter an setter for browser local storage.
  */
 chlorophyll.util.local_storage = (function chlorophyll$util$local_storage(var_args){
-var args23792 = [];
-var len__17395__auto___23795 = arguments.length;
-var i__17396__auto___23796 = (0);
+var args19679 = [];
+var len__17395__auto___19682 = arguments.length;
+var i__17396__auto___19683 = (0);
 while(true){
-if((i__17396__auto___23796 < len__17395__auto___23795)){
-args23792.push((arguments[i__17396__auto___23796]));
+if((i__17396__auto___19683 < len__17395__auto___19682)){
+args19679.push((arguments[i__17396__auto___19683]));
 
-var G__23797 = (i__17396__auto___23796 + (1));
-i__17396__auto___23796 = G__23797;
+var G__19684 = (i__17396__auto___19683 + (1));
+i__17396__auto___19683 = G__19684;
 continue;
 } else {
 }
 break;
 }
 
-var G__23794 = args23792.length;
-switch (G__23794) {
+var G__19681 = args19679.length;
+switch (G__19681) {
 case 1:
 return chlorophyll.util.local_storage.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -33,7 +33,7 @@ return chlorophyll.util.local_storage.cljs$core$IFn$_invoke$arity$2((arguments[(
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args23792.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19679.length)].join('')));
 
 }
 });
@@ -53,4 +53,4 @@ return localStorage.setItem(k,v);
 
 chlorophyll.util.local_storage.cljs$lang$maxFixedArity = 2;
 
-//# sourceMappingURL=util.js.map?rel=1442099110497
+//# sourceMappingURL=util.js.map?rel=1442160462583

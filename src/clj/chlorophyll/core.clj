@@ -9,10 +9,7 @@
 
 (defroutes router
   (GET "/" []
-       (response/redirect "/index.html"))
-  (route/resources "/"
-                   {:root "resources/public"})
-  (route/not-found "Four O four"))
+       (route/resources "resources/public")))
 
 (def app
   (handler/site router))

@@ -17,8 +17,8 @@ return new cljs.core.Keyword(null,"html","html",-998796897);
 }
 });
 figwheel.client.utils.base_url_path = (function figwheel$client$utils$base_url_path(){
-return clojure.string.replace.call(null,goog.basePath,/(.*)goog\//,(function (p1__24460_SHARP_,p2__24459_SHARP_){
-return [cljs.core.str(p2__24459_SHARP_)].join('');
+return clojure.string.replace.call(null,goog.basePath,/(.*)goog\//,(function (p1__24650_SHARP_,p2__24649_SHARP_){
+return [cljs.core.str(p2__24649_SHARP_)].join('');
 }));
 });
 figwheel.client.utils.dispatch_custom_event = (function figwheel$client$utils$dispatch_custom_event(event_name,data){
@@ -29,8 +29,8 @@ return (window["CustomEvent"]);
 return and__16325__auto__;
 }
 })())){
-return document.body.dispatchEvent((new CustomEvent(event_name,(function (){var obj24464 = {"detail":data};
-return obj24464;
+return document.body.dispatchEvent((new CustomEvent(event_name,(function (){var obj24654 = {"detail":data};
+return obj24654;
 })())));
 } else {
 return null;
@@ -45,23 +45,23 @@ return null;
 }
 });
 figwheel.client.utils.log = (function figwheel$client$utils$log(var_args){
-var args24469 = [];
-var len__17395__auto___24475 = arguments.length;
-var i__17396__auto___24476 = (0);
+var args24659 = [];
+var len__17395__auto___24665 = arguments.length;
+var i__17396__auto___24666 = (0);
 while(true){
-if((i__17396__auto___24476 < len__17395__auto___24475)){
-args24469.push((arguments[i__17396__auto___24476]));
+if((i__17396__auto___24666 < len__17395__auto___24665)){
+args24659.push((arguments[i__17396__auto___24666]));
 
-var G__24477 = (i__17396__auto___24476 + (1));
-i__17396__auto___24476 = G__24477;
+var G__24667 = (i__17396__auto___24666 + (1));
+i__17396__auto___24666 = G__24667;
 continue;
 } else {
 }
 break;
 }
 
-var G__24471 = args24469.length;
-switch (G__24471) {
+var G__24661 = args24659.length;
+switch (G__24661) {
 case 1:
 return figwheel.client.utils.log.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -71,7 +71,7 @@ return figwheel.client.utils.log.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args24469.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args24659.length)].join('')));
 
 }
 });
@@ -81,34 +81,34 @@ return figwheel.client.utils.log.call(null,new cljs.core.Keyword(null,"info","in
 });
 
 figwheel.client.utils.log.cljs$core$IFn$_invoke$arity$2 = (function (level,arg){
-var f = (function (){var pred__24472 = cljs.core._EQ_;
-var expr__24473 = (cljs.core.truth_(figwheel.client.utils.html_env_QMARK_.call(null))?level:new cljs.core.Keyword(null,"info","info",-317069002));
-if(cljs.core.truth_(pred__24472.call(null,new cljs.core.Keyword(null,"warn","warn",-436710552),expr__24473))){
-return ((function (pred__24472,expr__24473){
-return (function (p1__24465_SHARP_){
-return console.warn(p1__24465_SHARP_);
+var f = (function (){var pred__24662 = cljs.core._EQ_;
+var expr__24663 = (cljs.core.truth_(figwheel.client.utils.html_env_QMARK_.call(null))?level:new cljs.core.Keyword(null,"info","info",-317069002));
+if(cljs.core.truth_(pred__24662.call(null,new cljs.core.Keyword(null,"warn","warn",-436710552),expr__24663))){
+return ((function (pred__24662,expr__24663){
+return (function (p1__24655_SHARP_){
+return console.warn(p1__24655_SHARP_);
 });
-;})(pred__24472,expr__24473))
+;})(pred__24662,expr__24663))
 } else {
-if(cljs.core.truth_(pred__24472.call(null,new cljs.core.Keyword(null,"debug","debug",-1608172596),expr__24473))){
-return ((function (pred__24472,expr__24473){
-return (function (p1__24466_SHARP_){
-return console.debug(p1__24466_SHARP_);
+if(cljs.core.truth_(pred__24662.call(null,new cljs.core.Keyword(null,"debug","debug",-1608172596),expr__24663))){
+return ((function (pred__24662,expr__24663){
+return (function (p1__24656_SHARP_){
+return console.debug(p1__24656_SHARP_);
 });
-;})(pred__24472,expr__24473))
+;})(pred__24662,expr__24663))
 } else {
-if(cljs.core.truth_(pred__24472.call(null,new cljs.core.Keyword(null,"error","error",-978969032),expr__24473))){
-return ((function (pred__24472,expr__24473){
-return (function (p1__24467_SHARP_){
-return console.error(p1__24467_SHARP_);
+if(cljs.core.truth_(pred__24662.call(null,new cljs.core.Keyword(null,"error","error",-978969032),expr__24663))){
+return ((function (pred__24662,expr__24663){
+return (function (p1__24657_SHARP_){
+return console.error(p1__24657_SHARP_);
 });
-;})(pred__24472,expr__24473))
+;})(pred__24662,expr__24663))
 } else {
-return ((function (pred__24472,expr__24473){
-return (function (p1__24468_SHARP_){
-return console.log(p1__24468_SHARP_);
+return ((function (pred__24662,expr__24663){
+return (function (p1__24658_SHARP_){
+return console.log(p1__24658_SHARP_);
 });
-;})(pred__24472,expr__24473))
+;})(pred__24662,expr__24663))
 }
 }
 }
@@ -117,11 +117,11 @@ return f.call(null,arg);
 });
 
 figwheel.client.utils.log.cljs$lang$maxFixedArity = 2;
-figwheel.client.utils.eval_helper = (function figwheel$client$utils$eval_helper(code,p__24479){
-var map__24482 = p__24479;
-var map__24482__$1 = ((((!((map__24482 == null)))?((((map__24482.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24482.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__24482):map__24482);
-var opts = map__24482__$1;
-var eval_fn = cljs.core.get.call(null,map__24482__$1,new cljs.core.Keyword(null,"eval-fn","eval-fn",-1111644294));
+figwheel.client.utils.eval_helper = (function figwheel$client$utils$eval_helper(code,p__24669){
+var map__24672 = p__24669;
+var map__24672__$1 = ((((!((map__24672 == null)))?((((map__24672.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24672.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__24672):map__24672);
+var opts = map__24672__$1;
+var eval_fn = cljs.core.get.call(null,map__24672__$1,new cljs.core.Keyword(null,"eval-fn","eval-fn",-1111644294));
 if(cljs.core.truth_(eval_fn)){
 return eval_fn.call(null,code,opts);
 } else {
@@ -129,4 +129,4 @@ return eval(code);
 }
 });
 
-//# sourceMappingURL=utils.js.map?rel=1442099112935
+//# sourceMappingURL=utils.js.map?rel=1442160854339

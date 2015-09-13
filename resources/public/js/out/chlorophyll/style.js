@@ -78,4 +78,4 @@ cljs.core._add_method.call(null,chlorophyll.style.font,new cljs.core.Keyword(nul
 return chlorophyll.style.font_size.call(null,(2));
 }));
 
-//# sourceMappingURL=style.js.map?rel=1442099110547
+//# sourceMappingURL=style.js.map?rel=1442160462641
