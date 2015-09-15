@@ -4,6 +4,12 @@
             [chlorophyll.bus :as bus]
             [chlorophyll.atom :as atom]))
 
+;; Channel events.
+(defn select-channel
+  [c]
+  (put! bus/events {:selected-channel c}))
+
+;; Tiles events.
 (defn add-new-tile
   []
   "Push a new tile event in the events bus."

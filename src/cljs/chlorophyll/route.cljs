@@ -4,13 +4,17 @@
             [secretary.core :as secretary :include-macros true :refer-macros [defroute]]
             [pushy.core :as pushy]))
 
-(defn routes []
-  (secretary/set-config! :prefix "/")
-  (defroute "/test/:id" {:as params}
-    (.log js/console (str "test: " (:id params)))))
+;; Set prefix.
+(secretary/set-config! :prefix "/")
+
+;; Define routes.
+(defroute "/channel/:c" {:as params}
+  (ux/select-channel (:c params)))
 
 (def history
   (pushy/pushy secretary/dispatch!
-               (fn [x] (when (secretary/locate-route x) x))))
+               (fn [r] (when (secretary/locate-route r) r))))
 
+;; Start pushy tracking.
 (pushy/start! history)
+(pushy/set-token! history "/channel/ddd")

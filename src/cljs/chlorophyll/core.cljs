@@ -12,7 +12,6 @@
 (defn main
   "The main function is a loop that manages the channels."
   []
-  (route/routes)
   (go (while true
         (alt!
           bus/events ([v] (.log js/console (pr-str v)))
