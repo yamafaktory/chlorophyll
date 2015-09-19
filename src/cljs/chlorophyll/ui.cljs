@@ -1,10 +1,26 @@
 ;;;; User interface components.
 (ns chlorophyll.ui
-  (:require [reagent.core :as reagent :refer [atom]]
-            [chlorophyll.atom :as atom]
+  (:require [chlorophyll.atom :as atom]
+            [chlorophyll.route :as route]
             [chlorophyll.style :as style]
-            [chlorophyll.ux :as ux])
+            [chlorophyll.ux :as ux]
+            [reagent.core :as reagent :refer [atom]])
   (:require-macros [chlorophyll.macro :as macro]))
+
+(defn channel-switcher
+  "A channel switcher"
+  []
+  [:input {:style (conj style/reset
+                        style/padding
+                        {:font-size (style/font {:size :normal})
+                         :color (style/rgba {:type :lighten :alpha .9})
+                         :background-color (style/rgba {:type :darken :alpha .8})})
+           :type "text"
+           :max-length 50
+           :placeholder "Please choose a channel"
+           :on-change (fn [e]
+                        (let [v (.-target.value e)]
+                          (route/channel-switch v)))}])
 
 (defn tile-input
   "A tile input component"
@@ -16,6 +32,7 @@
             :border 0}
            :type "text"
            :max-length 50
+           :placeholder element
            :default-value (atom/get-set-tile id (keyword element))
            :on-change (fn [e]
                         (let [v (.-target.value e)]
@@ -28,20 +45,19 @@
   (let [id (get tile 0)
         bg (atom/get-set-tile id :color)]
     [:article {:key id
-               :style
-               (conj style/reset
-                     style/padding
-                     {:display "flex"
-                      :flex-direction "column"
-                      :color (style/rgba {:type :lighten :alpha .8})
-                      :background-color (cond
-                                          ;; Create a new color and store it.
-                                          (nil? bg)(let [rand (style/rgba {:type :random})]
-                                                     (atom/get-set-tile id :color (rand :vector))
-                                                     (rand :color))
-                                          ;; Or read the vector one.
-                                          :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
-                      :margin "1rem 2rem"})
+               :style (conj style/reset
+                            style/padding
+                            {:display "flex"
+                             :flex-direction "column"
+                             :color (style/rgba {:type :lighten :alpha .8})
+                             :background-color (cond
+                                                 ;; Create a new color and store it.
+                                                 (nil? bg)(let [rand (style/rgba {:type :random})]
+                                                            (atom/get-set-tile id :color (rand :vector))
+                                                            (rand :color))
+                                                 ;; Or read the vector one.
+                                                 :else (str "rgba(" (apply str (map (fn [v] (str v ",")) bg)) "1)"))
+                             :margin "1rem 2rem"})
                :on-click (macro/handler-fn (ux/select-tile id))}
      [tile-input id :title :big .8]
      [tile-input id :content :small .7]]))
@@ -49,14 +65,13 @@
 (defn add-tile
   "A button to add a new tile."
   []
-  [:button {:style
-            (conj style/reset
-                  style/padding
-                  {:color (style/rgba {:type :lighten :alpha .7})
-                   :background-color (style/rgba {:type :darken :alpha .4})
-                   :margin "1rem 2rem"
-                   :font-size (style/font {:size :normal})
-                   :text-align "left"})
+  [:button {:style (conj style/reset
+                         style/padding
+                         {:color (style/rgba {:type :lighten :alpha .7})
+                          :background-color (style/rgba {:type :darken :alpha .4})
+                          :margin "1rem 2rem"
+                          :font-size (style/font {:size :normal})
+                          :text-align "left"})
             :on-click (macro/handler-fn
                        (ux/add-new-tile)
                        (atom/add-tile "Title" "Content"))}
@@ -66,11 +81,11 @@
   "Core app component."
   []
   [:main
-   {:style
-    (conj style/reset
-          {:background-color (style/rgba {:type :darken :alpha .005})
-           :width "100%"
-           :display "flex"
-           :flex-direction "column"})}
+   {:style (conj style/reset
+                 {:background-color (style/rgba {:type :darken :alpha .005})
+                  :width "100%"
+                  :display "flex"
+                  :flex-direction "column"})}
+   [channel-switcher]
    [add-tile]
    (doall (map tile (reverse @atom/tiles)))])
