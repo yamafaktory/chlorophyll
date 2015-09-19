@@ -14,12 +14,14 @@
                         style/padding
                         {:font-size (style/font {:size :normal})
                          :color (style/rgba {:type :lighten :alpha .9})
-                         :background-color (style/rgba {:type :darken :alpha .8})})
+                         :background-color (style/rgba {:type :darken :alpha .7})})
            :type "text"
            :max-length 50
+           :default-value (atom/get-set-channel)
            :placeholder "Please choose a channel"
            :on-change (fn [e]
                         (let [v (.-target.value e)]
+                          (atom/get-set-channel v)
                           (route/channel-switch v)))}])
 
 (defn tile-input
@@ -63,7 +65,7 @@
      [tile-input id :content :small .7]]))
 
 (defn add-tile
-  "A button to add a new tile."
+  "A button to add a new tile in the current channel."
   []
   [:button {:style (conj style/reset
                          style/padding
@@ -74,7 +76,8 @@
                           :text-align "left"})
             :on-click (macro/handler-fn
                        (ux/add-new-tile)
-                       (atom/add-tile "Title" "Content"))}
+                       (let [c (atom/get-set-channel)]
+                         (atom/add-tile "Title" "Content" c)))}
    "Add a new tile"])
 
 (defn app
@@ -88,4 +91,9 @@
                   :flex-direction "column"})}
    [channel-switcher]
    [add-tile]
-   (doall (map tile (reverse @atom/tiles)))])
+   ;; Filter the tiles with the current channel.
+   (->> @atom/tiles
+        (reverse)
+        (filter (fn [[k v]] (= @atom/channel (v :channel))))
+        (map tile)
+        (doall))])

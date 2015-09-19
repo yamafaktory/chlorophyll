@@ -1,6 +1,7 @@
 ;;;; Routing
 (ns chlorophyll.route
-  (:require [chlorophyll.ux :as ux]
+  (:require [chlorophyll.atom :as atom]
+            [chlorophyll.ux :as ux]
             [pushy.core :as pushy]
             [secretary.core :as secretary :include-macros true :refer-macros [defroute]]))
 
@@ -22,3 +23,6 @@
 
 ;; Start pushy tracking.
 (pushy/start! history)
+
+;; Try getting channel from local storage during init.
+(channel-switch (atom/get-set-channel))
