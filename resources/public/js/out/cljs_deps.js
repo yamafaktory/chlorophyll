@@ -14,8 +14,9 @@ goog.addDependency("../reagent/impl/batching.js", ['reagent.impl.batching'], ['r
 goog.addDependency("../reagent/impl/component.js", ['reagent.impl.component'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.debug']);
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'clojure.string']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'cljsjs.react', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug']);
+goog.addDependency("../localforage.inc.js", ['cljsjs.localForage'], []);
 goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
-goog.addDependency("../chlorophyll/util.js", ['chlorophyll.util'], ['reagent.core', 'cljs.core', 'cljs.reader']);
+goog.addDependency("../chlorophyll/util.js", ['chlorophyll.util'], ['cljsjs.localForage', 'reagent.core', 'cljs.core', 'cljs.reader']);
 goog.addDependency("../chlorophyll/atom.js", ['chlorophyll.atom'], ['goog.string', 'reagent.core', 'chlorophyll.util', 'cljs.core']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
