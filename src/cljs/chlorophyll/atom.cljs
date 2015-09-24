@@ -4,18 +4,9 @@
             [reagent.core :as reagent :refer [atom]]
             [chlorophyll.util :as util]))
 
-;; Utils
-(defn- exist?
-  "Return the local storage value of key if exists."
-  [v]
-  (let [l (util/local-storage v)]
-    (when (some? l)
-      l)))
-
 ;; Channel
 (defonce channel
-  (atom
-   (exist? "chlorophyll-channel")))
+  (atom {}))
 
 (defn get-set-channel
   "Multi-arity getter and setter for channel."
@@ -27,8 +18,7 @@
 
 ;; Tiles
 (defonce tiles
-  (atom
-   (exist? "chlorophyll-tiles")))
+  (atom {}))
 
 (defn get-set-tile
   "Multi-arity getter and setter for tiles."

@@ -1,15 +1,23 @@
 ;;;; Utils
 (ns chlorophyll.util
   (:require [reagent.core :as reagent :refer [atom]]
+            [chlorophyll.bus :as bus]
+            [cljs.core.async :refer [put! chan <!]]
             [cljs.reader :as reader]
-            [cljsjs.localForage :as forage]))
+            [cljsjs.localForage]))
+
+;; localForage configuration.
+(set! (.-driver js/localforage) "localforage.LOCALSTORAGE")
+;;(set! (.-name js/localforage) "chlorophyll")
 
 (defn local-storage
   "Multi-arity getter an setter for browser local storage."
   ([v]
-   (let [loc (forage.getItem v)]
-     (if (some? loc)
-       (reader/read-string loc)
-       nil)))
+   (letfn [(cb [e v] (put! bus/storage (if (some? v)
+                                         (reader/read-string v)
+                                         nil)))]
+     (.getItem js/localforage v cb)))
   ([k v]
-   (forage.setItem k v)))
+   (.setItem js/localforage k v)))
+
+(.info js/console (local-storage "chlorophyll-tiles"))

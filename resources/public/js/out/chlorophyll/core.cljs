@@ -4,6 +4,7 @@
             [chlorophyll.bus :as bus]
             [chlorophyll.route :as route]
             [chlorophyll.ui :as ui]
+            [cljsjs.localForage :as forage]
             [reagent.core :as reagent :refer [atom]]))
 
 (defn main
