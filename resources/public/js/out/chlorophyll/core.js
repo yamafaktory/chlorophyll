@@ -6,7 +6,6 @@ goog.require('chlorophyll.atom');
 goog.require('chlorophyll.ui');
 goog.require('chlorophyll.bus');
 goog.require('chlorophyll.route');
-goog.require('cljsjs.localForage');
 /**
  * The main function is a loop that manages the channels.
  */
@@ -17,4 +16,4 @@ return reagent.core.render_component.call(null,new cljs.core.PersistentVector(nu
 });
 chlorophyll.core.main.call(null);
 
-//# sourceMappingURL=core.js.map?rel=1443038882732
+//# sourceMappingURL=core.js.map?rel=1443267480648

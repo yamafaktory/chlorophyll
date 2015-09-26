@@ -3,7 +3,10 @@
   :url "http://github.com/yamafaktory"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[compojure "1.4.0"]
+  :dependencies [[cljsjs/localforage "1.2.10-0"]
+                 [cljsjs/simple-peer "5.11.5-0"]
+                 [compojure "1.4.0"]
+                 [com.cognitect/transit-cljs "0.8.225"]
                  [figwheel "0.4.0"]
                  [http-kit "2.1.19"]
                  [kibu/pushy "0.3.3"]
@@ -12,15 +15,11 @@
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [reagent "0.5.1"]
                  [ring/ring-core "1.4.0"]
-                 [secretary "1.2.3"]
-                 [cljsjs/localForage "1.2.10-0"]
-                 [cljsjs/simple-peer "5.11.5-0"]]
+                 [secretary "1.2.3"]]
   :plugins [[cider/cider-nrepl "0.10.0-SNAPSHOT"]
             [lein-cljsbuild "1.1.0"]
             [lein-figwheel "0.4.0"]
-            [lein-npm "0.6.1"]
-            [lein-ring "0.9.6"]
-            [lein-localrepo "0.5.3"]]
+            [lein-ring "0.9.6"]]
   :source-paths ["src/clj"]
   :clean-targets ^{:protect false} ["resources/public/js/out"]
   :cljsbuild {:builds [{:id "dev"

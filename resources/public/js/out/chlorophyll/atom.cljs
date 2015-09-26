@@ -14,7 +14,7 @@
    @channel)
   ([v]
    (reset! channel v)
-   (util/local-storage "chlorophyll-channel" (gstr/quote @channel))))
+   (util/data-storage "chlorophyll-channel" {:channel @channel})))
 
 ;; Tiles
 (defonce tiles
@@ -27,10 +27,17 @@
   ([i k v]
    (let [c (reagent/cursor tiles [i k])]
      (reset! c v)
-     (util/local-storage "chlorophyll-tiles" @tiles))))
+     (util/data-storage "chlorophyll-tiles" {:tiles @tiles}))))
 
 (defn add-tile
   "Add a new tile in the tiles atom."
   [t c ch]
   (let [pos (count @tiles)]
     (swap! tiles assoc-in [pos] {:title t :content c :channel ch})))
+
+;; Common
+(defn sync
+  "Synchronize an atom after a callback from data-storage via the async dispatcher."
+  [v]
+  (let [a (name (first (map key v)))]
+    (.log js/console (pr-str (symbol a)))))

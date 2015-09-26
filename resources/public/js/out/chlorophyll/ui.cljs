@@ -3,8 +3,7 @@
   (:require [chlorophyll.atom :as atom]
             [chlorophyll.route :as route]
             [chlorophyll.style :as style]
-            [chlorophyll.ux :as ux]
-            [reagent.core :as reagent :refer [atom]])
+            [chlorophyll.ux :as ux])
   (:require-macros [chlorophyll.macro :as macro]))
 
 (defn channel-switcher

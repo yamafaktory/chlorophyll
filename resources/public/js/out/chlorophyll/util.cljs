@@ -1,23 +1,24 @@
 ;;;; Utils
 (ns chlorophyll.util
-  (:require [reagent.core :as reagent :refer [atom]]
-            [chlorophyll.bus :as bus]
+  (:require [chlorophyll.bus :as bus]
             [cljs.core.async :refer [put! chan <!]]
             [cljs.reader :as reader]
-            [cljsjs.localForage]))
+            [cljsjs.localforage]
+            [cognitect.transit :as transit]
+            [reagent.core :as reagent :refer [atom]]))
 
-;; localForage configuration.
-(set! (.-driver js/localforage) "localforage.LOCALSTORAGE")
-;;(set! (.-name js/localforage) "chlorophyll")
+;; localForage configuration, should be done first.
+(set! (.-setDriver js/localforage) "localforage.INDEXEDDB")
+(set! (.-setName js/localforage) "chlorophyll")
 
-(defn local-storage
-  "Multi-arity getter an setter for browser local storage."
+(defn data-storage
+  "Multi-arity getter an setter for browser data storage."
   ([v]
-   (letfn [(cb [e v] (put! bus/storage (if (some? v)
-                                         (reader/read-string v)
-                                         nil)))]
+   (let [r (transit/reader :json)
+         cb (fn [e v] (put! bus/storage (if (some? v) (transit/read r v) {})))]
      (.getItem js/localforage v cb)))
   ([k v]
-   (.setItem js/localforage k v)))
+   (let [w (transit/writer :json)]
+     (.setItem js/localforage k (transit/write w v)))))
 
-(.info js/console (local-storage "chlorophyll-tiles"))
+(data-storage "chlorophyll-tiles")
