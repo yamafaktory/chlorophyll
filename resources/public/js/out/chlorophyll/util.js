@@ -13,23 +13,23 @@ localforage.setName = "chlorophyll";
  * Multi-arity getter an setter for browser data storage.
  */
 chlorophyll.util.data_storage = (function chlorophyll$util$data_storage(var_args){
-var args19960 = [];
-var len__17395__auto___19963 = arguments.length;
-var i__17396__auto___19964 = (0);
+var args19966 = [];
+var len__17395__auto___19969 = arguments.length;
+var i__17396__auto___19970 = (0);
 while(true){
-if((i__17396__auto___19964 < len__17395__auto___19963)){
-args19960.push((arguments[i__17396__auto___19964]));
+if((i__17396__auto___19970 < len__17395__auto___19969)){
+args19966.push((arguments[i__17396__auto___19970]));
 
-var G__19965 = (i__17396__auto___19964 + (1));
-i__17396__auto___19964 = G__19965;
+var G__19971 = (i__17396__auto___19970 + (1));
+i__17396__auto___19970 = G__19971;
 continue;
 } else {
 }
 break;
 }
 
-var G__19962 = args19960.length;
-switch (G__19962) {
+var G__19968 = args19966.length;
+switch (G__19968) {
 case 1:
 return chlorophyll.util.data_storage.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -39,7 +39,7 @@ return chlorophyll.util.data_storage.cljs$core$IFn$_invoke$arity$2((arguments[(0
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19960.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args19966.length)].join('')));
 
 }
 });
@@ -60,6 +60,7 @@ return localforage.setItem(k,cognitect.transit.write.call(null,w,v));
 });
 
 chlorophyll.util.data_storage.cljs$lang$maxFixedArity = 2;
+chlorophyll.util.data_storage.call(null,"chlorophyll-channel");
 chlorophyll.util.data_storage.call(null,"chlorophyll-tiles");
 
-//# sourceMappingURL=util.js.map?rel=1443299235486
+//# sourceMappingURL=util.js.map?rel=1443377777009

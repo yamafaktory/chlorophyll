@@ -39,5 +39,7 @@
 (defn sync
   "Synchronize an atom after a callback from data-storage via the async dispatcher."
   [v]
-  (let [a (name (first (map key v)))]
-    (.log js/console (pr-str (symbol a)))))
+  (let [a (first (map key v))]
+    (condp = a
+      :channel (reset! channel (v :tiles))
+      :tiles (reset! tiles (v :tiles)))))

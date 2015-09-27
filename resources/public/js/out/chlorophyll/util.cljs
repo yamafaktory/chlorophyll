@@ -21,4 +21,6 @@
    (let [w (transit/writer :json)]
      (.setItem js/localforage k (transit/write w v)))))
 
+;; During the init phase, try to populate the atoms.
+(data-storage "chlorophyll-channel")
 (data-storage "chlorophyll-tiles")

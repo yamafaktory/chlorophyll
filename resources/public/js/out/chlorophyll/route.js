@@ -6,24 +6,24 @@ goog.require('chlorophyll.ux');
 goog.require('pushy.core');
 goog.require('secretary.core');
 secretary.core.set_config_BANG_.call(null,new cljs.core.Keyword(null,"prefix","prefix",-265908465),"/");
-var action__18454__auto___20180 = (function (params__18455__auto__){
-if(cljs.core.map_QMARK_.call(null,params__18455__auto__)){
-var map__20176 = params__18455__auto__;
-var map__20176__$1 = ((((!((map__20176 == null)))?((((map__20176.cljs$lang$protocol_mask$partition0$ & (64))) || (map__20176.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__20176):map__20176);
-var params = map__20176__$1;
+var action__18453__auto___19981 = (function (params__18454__auto__){
+if(cljs.core.map_QMARK_.call(null,params__18454__auto__)){
+var map__19977 = params__18454__auto__;
+var map__19977__$1 = ((((!((map__19977 == null)))?((((map__19977.cljs$lang$protocol_mask$partition0$ & (64))) || (map__19977.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__19977):map__19977);
+var params = map__19977__$1;
 return chlorophyll.ux.select_channel.call(null,new cljs.core.Keyword(null,"c","c",-1763192079).cljs$core$IFn$_invoke$arity$1(params));
 } else {
-if(cljs.core.vector_QMARK_.call(null,params__18455__auto__)){
-var map__20178 = params__18455__auto__;
-var map__20178__$1 = ((((!((map__20178 == null)))?((((map__20178.cljs$lang$protocol_mask$partition0$ & (64))) || (map__20178.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__20178):map__20178);
-var params = map__20178__$1;
+if(cljs.core.vector_QMARK_.call(null,params__18454__auto__)){
+var map__19979 = params__18454__auto__;
+var map__19979__$1 = ((((!((map__19979 == null)))?((((map__19979.cljs$lang$protocol_mask$partition0$ & (64))) || (map__19979.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__19979):map__19979);
+var params = map__19979__$1;
 return chlorophyll.ux.select_channel.call(null,new cljs.core.Keyword(null,"c","c",-1763192079).cljs$core$IFn$_invoke$arity$1(params));
 } else {
 return null;
 }
 }
 });
-secretary.core.add_route_BANG_.call(null,"/channel/:c",action__18454__auto___20180);
+secretary.core.add_route_BANG_.call(null,"/channel/:c",action__18453__auto___19981);
 
 chlorophyll.route.history = pushy.core.pushy.call(null,secretary.core.dispatch_BANG_,(function (r){
 if(cljs.core.truth_(secretary.core.locate_route.call(null,r))){
@@ -37,4 +37,4 @@ return pushy.core.set_token_BANG_.call(null,chlorophyll.route.history,[cljs.core
 });
 pushy.core.start_BANG_.call(null,chlorophyll.route.history);
 
-//# sourceMappingURL=route.js.map?rel=1443043820541
+//# sourceMappingURL=route.js.map?rel=1443379469701

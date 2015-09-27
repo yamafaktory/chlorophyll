@@ -7,12 +7,12 @@
             [reagent.core :as reagent :refer [atom]]))
 
 (defn main
-  "The main function is a loop that manages the channels."
+  "The main function mounts the core component and instantiate the dispacher."
   []
   (bus/dispatcher)
   ;; Mount the application.
   (reagent/render-component [ui/app]
-                            (js/document.getElementById "app")))
+                            (.getElementById js/document "app")))
 
-;; Launch the main loop.
+;; Launch the application.
 (main)

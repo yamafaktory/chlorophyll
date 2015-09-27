@@ -23,6 +23,3 @@
 
 ;; Start pushy tracking.
 (pushy/start! history)
-
-;; Try getting channel from local storage during init.
-;;(channel-switch (atom/get-set-channel))

@@ -7,7 +7,7 @@ goog.require('chlorophyll.ui');
 goog.require('chlorophyll.bus');
 goog.require('chlorophyll.route');
 /**
- * The main function is a loop that manages the channels.
+ * The main function mounts the core component and instantiate the dispacher.
  */
 chlorophyll.core.main = (function chlorophyll$core$main(){
 chlorophyll.bus.dispatcher.call(null);
@@ -16,4 +16,4 @@ return reagent.core.render_component.call(null,new cljs.core.PersistentVector(nu
 });
 chlorophyll.core.main.call(null);
 
-//# sourceMappingURL=core.js.map?rel=1443267480648
+//# sourceMappingURL=core.js.map?rel=1443377004330
