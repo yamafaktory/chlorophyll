@@ -1,7 +1,6 @@
 ;;;; Atoms
 (ns chlorophyll.atom
-  (:require [goog.string :as gstr]
-            [reagent.core :as reagent :refer [atom]]
+  (:require [reagent.core :as reagent :refer [atom]]
             [chlorophyll.util :as util]))
 
 ;; Channel

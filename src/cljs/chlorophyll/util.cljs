@@ -16,10 +16,12 @@
   ([v]
    (let [r (transit/reader :json)
          cb (fn [e v] (put! bus/storage (if (some? v) (transit/read r v) {})))]
-     (.getItem js/localforage v cb)))
+     (.getItem js/localforage v cb)
+     ))
   ([k v]
    (let [w (transit/writer :json)]
-     (.setItem js/localforage k (transit/write w v)))))
+     (.setItem js/localforage k (transit/write w v))
+     )))
 
 ;; During the init phase, try to populate the atoms.
 (data-storage "chlorophyll-channel")
